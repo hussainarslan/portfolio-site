@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-panchang: "Panchang", system-ui, sans-serif;
+  --font-thorsa: "Thorsa", system-ui, sans-serif;
+  --font-mona-sans: "Mona Sans", system-ui, sans-serif;
+
+  /* Dark mode colors - Updated accent color */
+  --background: #161614;
+  --foreground: #ffffe3;
+  --muted: #2a2a26;
+  --muted-foreground: #ffffe3;
+  --border: #3a3a36;
+  --accent: #ffffe3;
+  --card-bg: #2a2a26;
+  --card-hover: #3a3a36;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  /* Custom scrollbar for dark mode */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--muted);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--muted-foreground);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--foreground);
+  }
+}
+
+@layer components {
+  .hero-title {
+    font-family: var(--font-panchang);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+
+  .section-header {
+    font-family: var(--font-thorsa);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  .page-title {
+    font-family: var(--font-panchang);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  .body-large {
+    font-family: var(--font-mona-sans);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #b8b8a3;
+  }
+
+  .body-regular {
+    font-family: var(--font-mona-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #b8b8a3;
+  }
+
+  .caption {
+    font-family: var(--font-mona-sans);
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #b8b8a3;
+  }
+
+  .magnetic-hover {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .magnetic-hover:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+
+  .text-reveal {
+    overflow: hidden;
+  }
+
+  .text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    animation: reveal 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  @keyframes reveal {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .scroll-indicator {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-indicator::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .scroll-indicator.active::after {
+    transform: scaleX(1);
+  }
+
+  /* Ensure all text elements are visible */
+  .text-primary {
+    color: var(--foreground) !important;
+  }
+
+  .text-secondary {
+    color: #b8b8a3 !important;
+  }
+
+  .text-accent {
+    color: var(--accent) !important;
+  }
+
+  .border-card {
+    border-color: #ffffe3;
+  }
+
+  .border-card-hover:hover {
+    border-color: #ffffe3;
+    box-shadow: 0 0 0 1px #ffffe3;
+  }
+
+  /* Custom placeholder styling for form inputs */
+  input::placeholder,
+  textarea::placeholder {
+    color: #161614 !important;
+    opacity: 0.7;
+  }
+
+  input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: #161614 !important;
+    opacity: 0.7;
+  }
+
+  input::-moz-placeholder,
+  textarea::-moz-placeholder {
+    color: #161614 !important;
+    opacity: 0.7;
+  }
+
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    color: #161614 !important;
+    opacity: 0.7;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
