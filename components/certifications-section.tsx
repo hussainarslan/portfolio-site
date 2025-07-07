@@ -63,7 +63,7 @@ export default function CertificationsSection() {
 
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="font-thorsa font-bold text-lg" style={{ color: "#FFFFE3" }}>
+                      <h3 className="font-mona-sans font-bold text-lg" style={{ color: "#FFFFE3" }}>
                         {cert.title}
                       </h3>
                       <span className="caption" style={{ color: "#B8B8A3" }}>

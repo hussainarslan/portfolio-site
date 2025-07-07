@@ -33,7 +33,7 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="font-panchang font-bold text-xl magnetic-hover" style={{ color: "#FFFFE3" }}>
-            Hussain Arslan
+            MHA
           </Link>
 
           <button
@@ -80,7 +80,7 @@ export default function Navigation() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-2xl font-thorsa font-bold transition-colors magnetic-hover"
+                  className="block text-2xl font-panchang font-bold transition-colors magnetic-hover"
                   style={{ color: "#FFFFE3", animationDelay: `${index * 0.1}s` }}
                 >
                   {item.label}

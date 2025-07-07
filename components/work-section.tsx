@@ -102,7 +102,7 @@ export default function WorkSection() {
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-thorsa font-bold text-xl transition-colors" style={{ color: "#FFFFE3" }}>
+                  <h3 className="font-mona-sans font-bold text-xl transition-colors" style={{ color: "#FFFFE3" }}>
                     {project.title}
                   </h3>
                   <span className="caption" style={{ color: "#B8B8A3" }}>
@@ -114,7 +114,7 @@ export default function WorkSection() {
                 </p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {project.tags.slice(0, 3).map((tag) => (
-                    <span key={tag} className="caption px-2 py-1 bg-gray-800 rounded-full" style={{ color: "#B8B8A3" }}>
+                    <span key={tag} className="caption px-3 py-1 rounded-full" style={{ backgroundColor: "#FFFFE3", color: "#161614" }}>
                       {tag}
                     </span>
                   ))}

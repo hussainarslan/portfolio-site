@@ -38,9 +38,9 @@ export default function HeroSection() {
 
   return (
     <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
-      <div className="text-center max-w-4xl mx-auto">
+      <div className="text-center max-w-5xl mx-auto">
         <h1 className="hero-title mb-6 text-center leading-tight" style={{ color: "#FFFFE3" }}>
-          <span ref={firstLineRef} className="block mb-2">
+          <span ref={firstLineRef} className="block mb-2 whitespace-nowrap">
             Muhammad Hussain
           </span>
           <span ref={secondLineRef} className="block">
@@ -49,7 +49,7 @@ export default function HeroSection() {
         </h1>
         <p
           ref={subtitleRef}
-          className="body-large mb-12 opacity-0 transform translate-y-4 transition-all duration-800 text-balance"
+          className="position-title mb-12 opacity-0 transform translate-y-4 transition-all duration-800 text-balance"
           style={{ color: "#B8B8A3" }}
         >
           AI Architect & Software Engineer

@@ -78,7 +78,7 @@ export default function SkillsSection() {
               key={category.category}
               className="border border-card p-6 rounded-lg hover:border-card-hover transition-all"
             >
-              <h3 className="font-thorsa font-bold text-xl mb-6 text-center text-primary">{category.category}</h3>
+              <h3 className="font-mona-sans font-bold text-xl mb-6 text-center text-primary">{category.category}</h3>
 
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => {
@@ -112,39 +112,36 @@ export default function SkillsSection() {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-8 p-6 border border-card rounded-lg hover:border-card-hover transition-all">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 border border-card rounded-lg hover:border-card-hover transition-all">
             <div className="text-center">
-              <div className="font-panchang font-bold text-3xl" style={{ color: "#FFFFE3" }}>
+              <div className="font-panchang font-bold text-2xl sm:text-3xl" style={{ color: "#FFFFE3" }}>
                 7+
               </div>
-              <div className="caption" style={{ color: "#B8B8A3" }}>
+              <div className="caption text-xs sm:text-sm" style={{ color: "#B8B8A3" }}>
                 Years Experience
               </div>
             </div>
-            <div className="w-px h-12 bg-gray-700" />
             <div className="text-center">
-              <div className="font-panchang font-bold text-3xl" style={{ color: "#FFFFE3" }}>
+              <div className="font-panchang font-bold text-2xl sm:text-3xl" style={{ color: "#FFFFE3" }}>
                 $6.7M
               </div>
-              <div className="caption" style={{ color: "#B8B8A3" }}>
+              <div className="caption text-xs sm:text-sm" style={{ color: "#B8B8A3" }}>
                 Revenue Recovered
               </div>
             </div>
-            <div className="w-px h-12 bg-gray-700" />
             <div className="text-center">
-              <div className="font-panchang font-bold text-3xl" style={{ color: "#FFFFE3" }}>
+              <div className="font-panchang font-bold text-2xl sm:text-3xl" style={{ color: "#FFFFE3" }}>
                 40+
               </div>
-              <div className="caption" style={{ color: "#B8B8A3" }}>
+              <div className="caption text-xs sm:text-sm" style={{ color: "#B8B8A3" }}>
                 Global Clients
               </div>
             </div>
-            <div className="w-px h-12 bg-gray-700" />
             <div className="text-center">
-              <div className="font-panchang font-bold text-3xl" style={{ color: "#FFFFE3" }}>
+              <div className="font-panchang font-bold text-2xl sm:text-3xl" style={{ color: "#FFFFE3" }}>
                 96%
               </div>
-              <div className="caption" style={{ color: "#B8B8A3" }}>
+              <div className="caption text-xs sm:text-sm" style={{ color: "#B8B8A3" }}>
                 Client Satisfaction
               </div>
             </div>

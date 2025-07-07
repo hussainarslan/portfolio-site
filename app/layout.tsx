@@ -7,17 +7,17 @@ import "./globals.css"
 const panchang = localFont({
   src: [
     {
-      path: "./fonts/panchang-regular.woff2",
+      path: "../fonts/Panchang-Regular.woff",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/panchang-bold.woff2",
+      path: "../fonts/Panchang-Bold.woff",
       weight: "700",
       style: "normal",
     },
     {
-      path: "./fonts/panchang-black.woff2",
+      path: "../fonts/Panchang-Bold.woff",
       weight: "900",
       style: "normal",
     },
@@ -27,18 +27,7 @@ const panchang = localFont({
 })
 
 const thorsa = localFont({
-  src: [
-    {
-      path: "./fonts/thorsa-regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/thorsa-bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+  src: "../fonts/Thorsa-Regular.otf",
   variable: "--font-thorsa",
   display: "swap",
 })
@@ -46,17 +35,17 @@ const thorsa = localFont({
 const monaSans = localFont({
   src: [
     {
-      path: "./fonts/mona-sans-light.woff2",
+      path: "../fonts/MonaSans-Light.ttf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/mona-sans-regular.woff2",
+      path: "../fonts/MonaSans-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/mona-sans-medium.woff2",
+      path: "../fonts/MonaSans-Medium.ttf",
       weight: "500",
       style: "normal",
     },
@@ -68,8 +57,7 @@ const monaSans = localFont({
 export const metadata: Metadata = {
   title: "Muhammad Hussain Arslan - AI Architect & Software Engineer",
   description:
-    "Accomplished AI architect and software engineer with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
-    generator: 'v0.dev'
+    "Accomplished AI architect and software engineer with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions."
 }
 
 export default function RootLayout({

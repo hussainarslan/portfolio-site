@@ -48,7 +48,7 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div className="border border-card p-8 rounded-lg hover:border-card-hover transition-all">
-            <h3 className="font-thorsa font-bold text-2xl mb-6 text-primary">Send a Message</h3>
+            <h3 className="font-mona-sans font-bold text-2xl mb-6 text-primary">Send a Message</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -128,7 +128,7 @@ export default function ContactSection() {
           {/* Quick Links */}
           <div className="space-y-8">
             <div>
-              <h3 className="font-thorsa font-bold text-2xl mb-6 text-primary">Quick Connect</h3>
+              <h3 className="font-mona-sans font-bold text-2xl mb-6 text-primary">Quick Connect</h3>
               <div className="space-y-4">
                 <a
                   href="mailto:m.hussain.arslan@gmail.com"
@@ -199,7 +199,7 @@ export default function ContactSection() {
             </div>
 
             <div className="border border-card p-6 rounded-lg hover:border-card-hover transition-all">
-              <h4 className="font-thorsa font-bold text-lg mb-3 text-primary">Currently Available</h4>
+              <h4 className="font-mona-sans font-bold text-lg mb-3 text-primary">Currently Available</h4>
               <p className="body-regular mb-4">
                 Building the next generation of AI agent marketplaces. Open to discussing innovative AI projects and
                 consulting opportunities.

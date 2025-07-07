@@ -100,7 +100,7 @@ export default function BlogSection() {
         )}
 
         <div>
-          <h3 className="font-thorsa font-bold text-2xl mb-8" style={{ color: "#FFFFE3" }}>
+          <h3 className="font-mona-sans font-bold text-2xl mb-8" style={{ color: "#FFFFE3" }}>
             Recent Posts
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -122,7 +122,7 @@ export default function BlogSection() {
                     <span>{post.readTime}</span>
                   </div>
 
-                  <h4 className="font-thorsa font-bold text-xl transition-colors" style={{ color: "#FFFFE3" }}>
+                  <h4 className="font-mona-sans font-bold text-xl transition-colors" style={{ color: "#FFFFE3" }}>
                     {post.title}
                   </h4>
 

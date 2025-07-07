@@ -124,7 +124,7 @@ export default function HistorySection() {
 
                 <div className="border border-card p-6 rounded-lg hover:border-card-hover transition-all magnetic-hover">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                    <h3 className="font-thorsa font-bold text-xl" style={{ color: "#FFFFE3" }}>
+                    <h3 className="font-mona-sans font-bold text-xl" style={{ color: "#FFFFE3" }}>
                       {exp.role}
                     </h3>
                     <span className="caption mt-1 sm:mt-0" style={{ color: "#B8B8A3" }}>
