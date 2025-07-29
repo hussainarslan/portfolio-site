@@ -9,7 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'standalone',
+  output: 'export', // Changed from 'standalone' to 'export'
+  trailingSlash: true, // Optional but recommended for static hosting
 }
 
 export default nextConfig
