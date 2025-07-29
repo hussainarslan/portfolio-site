@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import posthog from "posthog-js"
 
 const blogPosts = [
   {
@@ -62,7 +65,15 @@ export default function BlogSection() {
 
         {featuredPost && (
           <div className="mb-16">
-            <Link href={`/blog/${featuredPost.id}`} className="group block">
+            <Link 
+              href={`/blog/${featuredPost.id}`} 
+              className="group block"
+              onClick={() => posthog.capture('blog_post_view', { 
+                post_id: featuredPost.id, 
+                post_title: featuredPost.title, 
+                featured: true 
+              })}
+            >
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-800">
                   <Image
@@ -105,7 +116,16 @@ export default function BlogSection() {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {recentPosts.map((post) => (
-              <Link key={post.id} href={`/blog/${post.id}`} className="group block">
+              <Link 
+                key={post.id} 
+                href={`/blog/${post.id}`} 
+                className="group block"
+                onClick={() => posthog.capture('blog_post_view', { 
+                  post_id: post.id, 
+                  post_title: post.title, 
+                  featured: false 
+                })}
+              >
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-800 mb-4">
                   <Image
                     src={post.image || "/placeholder.svg"}
@@ -139,6 +159,7 @@ export default function BlogSection() {
           <Link
             href="/blog"
             className="inline-flex items-center px-6 py-3 border border-gray-700 rounded-lg hover:border-gray-600 transition-colors magnetic-hover font-mona-sans font-medium text-primary"
+            onClick={() => posthog.capture('view_all_posts_click')}
           >
             View All Posts
           </Link>

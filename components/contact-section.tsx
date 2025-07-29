@@ -3,36 +3,72 @@
 import type React from "react"
 
 import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
 import { Mail, Linkedin, Github, Twitter } from "lucide-react"
+import posthog from "posthog-js"
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters").max(1000, "Message must be less than 1000 characters"),
+})
+
+type ContactFormData = z.infer<typeof contactSchema>
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
+  const FORMSPARK_ACTION_URL = "https://submit-form.com/EPSdyzan3"
+  
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState("")
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    reset,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    mode: "onChange",
+  })
+
+  const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
+    setSubmitMessage("")
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    posthog.capture('contact_form_submit', {
+      name: data.name,
+      email: data.email,
+      message_length: data.message.length
+    })
 
-    // Reset form
-    setFormData({ name: "", email: "", message: "" })
+    try {
+      const response = await fetch(FORMSPARK_ACTION_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitMessage("Thank you! Your message has been sent.")
+        reset()
+      } else {
+        setSubmitMessage("Something went wrong. Please try again.")
+      }
+    } catch (error) {
+      setSubmitMessage("Something went wrong. Please try again.")
+      console.error("Form submission error:", error)
+    }
+
     setIsSubmitting(false)
-
-    // You would typically send this to your backend or email service
-    console.log("Form submitted:", formData)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
   }
 
   return (
@@ -50,7 +86,7 @@ export default function ContactSection() {
           <div className="border border-card p-8 rounded-lg hover:border-card-hover transition-all">
             <h3 className="font-mona-sans font-bold text-2xl mb-6 text-primary">Send a Message</h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
               <div>
                 <label htmlFor="name" className="block font-mona-sans font-medium mb-2 text-primary">
                   Name
@@ -58,11 +94,10 @@ export default function ContactSection() {
                 <input
                   type="text"
                   id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:border-transparent transition-all font-mona-sans"
+                  {...register("name")}
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-all font-mona-sans ${
+                    errors.name ? "border-red-500" : "border-gray-700"
+                  }`}
                   style={{
                     backgroundColor: "#FFFFE3",
                     color: "#161614",
@@ -70,6 +105,9 @@ export default function ContactSection() {
                   }}
                   placeholder="Your name"
                 />
+                <p className={`mt-1 text-sm text-red-400 h-5 ${errors.name ? 'visible' : 'invisible'}`}>
+                  {errors.name?.message || ' '}
+                </p>
               </div>
 
               <div>
@@ -79,11 +117,11 @@ export default function ContactSection() {
                 <input
                   type="email"
                   id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:border-transparent transition-all font-mona-sans"
+                  {...register("email")}
+                  noValidate
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-all font-mona-sans ${
+                    errors.email ? "border-red-500" : "border-gray-700"
+                  }`}
                   style={{
                     backgroundColor: "#FFFFE3",
                     color: "#161614",
@@ -91,6 +129,9 @@ export default function ContactSection() {
                   }}
                   placeholder="your@email.com"
                 />
+                <p className={`mt-1 text-sm text-red-400 h-5 ${errors.email ? 'visible' : 'invisible'}`}>
+                  {errors.email?.message || ' '}
+                </p>
               </div>
 
               <div>
@@ -99,12 +140,11 @@ export default function ContactSection() {
                 </label>
                 <textarea
                   id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
+                  {...register("message")}
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:border-transparent transition-all font-mona-sans resize-none"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-all font-mona-sans resize-none ${
+                    errors.message ? "border-red-500" : "border-gray-700"
+                  }`}
                   style={{
                     backgroundColor: "#FFFFE3",
                     color: "#161614",
@@ -112,16 +152,29 @@ export default function ContactSection() {
                   }}
                   placeholder="Tell me about your project..."
                 />
+                <p className={`mt-1 text-sm text-red-400 h-5 ${errors.message ? 'visible' : 'invisible'}`}>
+                  {errors.message?.message || ' '}
+                </p>
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !isValid}
                 className="w-full py-3 px-6 rounded-lg transition-colors font-mona-sans font-medium disabled:opacity-50 disabled:cursor-not-allowed magnetic-hover"
                 style={{ backgroundColor: "#FFFFE3", color: "#161614" }}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
+
+              {submitMessage && (
+                <div
+                  className={`mt-4 p-3 rounded-lg text-center font-mona-sans ${
+                    submitMessage.includes("Thank you") ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                  }`}
+                >
+                  {submitMessage}
+                </div>
+              )}
             </form>
           </div>
 
@@ -133,6 +186,7 @@ export default function ContactSection() {
                 <a
                   href="mailto:m.hussain.arslan@gmail.com"
                   className="flex items-center gap-4 p-4 border border-card rounded-lg hover:border-card-hover transition-all magnetic-hover"
+                  onClick={() => posthog.capture('connect_button_click', { type: 'email' })}
                 >
                   <Mail className="text-blue-400" size={24} style={{ color: "#FFFFE3" }} />
                   <div>
@@ -150,6 +204,7 @@ export default function ContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 border border-card rounded-lg hover:border-card-hover transition-all magnetic-hover"
+                  onClick={() => posthog.capture('connect_button_click', { type: 'linkedin' })}
                 >
                   <Linkedin className="text-blue-400" size={24} style={{ color: "#FFFFE3" }} />
                   <div>
@@ -167,6 +222,7 @@ export default function ContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 border border-card rounded-lg hover:border-card-hover transition-all magnetic-hover"
+                  onClick={() => posthog.capture('connect_button_click', { type: 'github' })}
                 >
                   <Github className="text-blue-400" size={24} style={{ color: "#FFFFE3" }} />
                   <div>
@@ -180,10 +236,11 @@ export default function ContactSection() {
                 </a>
 
                 <a
-                  href="https://twitter.com"
+                  href="https://x.com/mhussainarslan"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 border border-card rounded-lg hover:border-card-hover transition-all magnetic-hover"
+                  onClick={() => posthog.capture('connect_button_click', { type: 'twitter' })}
                 >
                   <Twitter className="text-blue-400" size={24} style={{ color: "#FFFFE3" }} />
                   <div>

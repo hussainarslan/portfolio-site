@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import posthog from "posthog-js"
 
 const experiences = [
   {
@@ -162,6 +163,10 @@ export default function HistorySection() {
             download
             className="inline-flex items-center px-6 py-3 rounded-lg transition-colors magnetic-hover font-mona-sans font-medium"
             style={{ backgroundColor: "#FFFFE3", color: "#161614" }}
+            onClick={() => posthog.capture('resume_download', { 
+              source: 'history_section',
+              format: 'pdf'
+            })}
           >
             Download Resume
           </a>

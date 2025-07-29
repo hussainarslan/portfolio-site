@@ -102,6 +102,8 @@ export default function Navigation() {
                 </a>
                 <a
                   href="https://linkedin.com/in/hussainarslan"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block body-regular transition-colors magnetic-hover"
                   style={{ color: "#B8B8A3" }}
                 >
@@ -109,6 +111,8 @@ export default function Navigation() {
                 </a>
                 <a
                   href="https://github.com/hussainarslan"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block body-regular transition-colors magnetic-hover"
                   style={{ color: "#B8B8A3" }}
                 >

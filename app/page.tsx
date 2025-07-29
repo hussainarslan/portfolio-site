@@ -12,11 +12,11 @@ export default function Home() {
     <main className="relative">
       <Navigation />
       <HeroSection />
-      <WorkSection />
+      {/* <WorkSection /> */}
       <SkillsSection />
       <HistorySection />
       <CertificationsSection />
-      <BlogSection />
+      {/* <BlogSection /> */}
       <ContactSection />
 
       {/* Footer */}
