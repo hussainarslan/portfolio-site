@@ -4,7 +4,6 @@
 
 :root {
   --font-panchang: "Panchang", system-ui, sans-serif;
-  --font-thorsa: "Thorsa", system-ui, sans-serif;
   --font-mona-sans: "Mona Sans", system-ui, sans-serif;
 
   /* Dark mode colors - Updated accent color */
@@ -91,13 +90,12 @@
   }
 
   .position-title {
-    font-family: var(--font-thorsa), system-ui, sans-serif;
+    font-family: var(--font-mona-sans);
     font-size: 1.25rem;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.6;
     color: #b8b8a3;
     letter-spacing: 0.02em;
-    text-transform: uppercase;
   }
 
   .body-regular {

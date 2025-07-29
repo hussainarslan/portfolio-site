@@ -17,9 +17,9 @@ export default function Navigation() {
   }, [])
 
   const navItems = [
-    { href: "#work", label: "Work" },
+    // { href: "#work", label: "Work" },
     { href: "#history", label: "History" },
-    { href: "#blog", label: "Blog" },
+    // { href: "#blog", label: "Blog" },
     { href: "#contact", label: "Contact" },
   ]
 
@@ -33,7 +33,7 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="font-panchang font-bold text-xl magnetic-hover" style={{ color: "#FFFFE3" }}>
-            MHA
+            MHAC
           </Link>
 
           <button

@@ -26,12 +26,6 @@ const panchang = localFont({
   display: "swap",
 })
 
-const thorsa = localFont({
-  src: "../fonts/Thorsa-Regular.otf",
-  variable: "--font-thorsa",
-  display: "swap",
-})
-
 const monaSans = localFont({
   src: [
     {
@@ -66,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${panchang.variable} ${thorsa.variable} ${monaSans.variable}`}>
+    <html lang="en" className={`${panchang.variable} ${monaSans.variable}`}>
       <body className="font-mona-sans antialiased" style={{ backgroundColor: "#161614", color: "#FFFFE3" }}>
         {children}
       </body>

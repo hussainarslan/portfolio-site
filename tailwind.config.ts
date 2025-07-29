@@ -11,7 +11,6 @@ const config: Config = {
     extend: {
       fontFamily: {
         panchang: ["var(--font-panchang)", "system-ui", "sans-serif"],
-        thorsa: ["var(--font-thorsa)", "system-ui", "sans-serif"],
         "mona-sans": ["var(--font-mona-sans)", "system-ui", "sans-serif"],
       },
       colors: {
