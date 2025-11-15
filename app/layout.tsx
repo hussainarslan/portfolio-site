@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
+import { PostHogProvider } from "@/components/providers/posthog-provider"
 
 // Load custom fonts
 const panchang = localFont({
@@ -62,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${panchang.variable} ${monaSans.variable}`}>
       <body className="font-mona-sans antialiased" style={{ backgroundColor: "#161614", color: "#FFFFE3" }}>
-        {children}
+        <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>
   )
