@@ -5,6 +5,33 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import posthog from 'posthog-js'
 import { initPostHog } from '@/lib/posthog'
 
+function displayWelcomeMessage() {
+  const asciiArt = `
+███████╗ ██████╗ ██████╗     ████████╗██╗  ██╗███████╗
+██╔════╝██╔═══██╗██╔══██╗    ╚══██╔══╝██║  ██║██╔════╝
+█████╗  ██║   ██║██████╔╝       ██║   ███████║█████╗
+██╔══╝  ██║   ██║██╔══██╗       ██║   ██╔══██║██╔══╝
+██║     ╚██████╔╝██║  ██║       ██║   ██║  ██║███████╗
+╚═╝      ╚═════╝ ╚═╝  ╚═╝       ╚═╝   ╚═╝  ╚═╝╚══════╝
+
+██╗      ██████╗ ██╗   ██╗███████╗     ██████╗ ███████╗
+██║     ██╔═══██╗██║   ██║██╔════╝    ██╔═══██╗██╔════╝
+██║     ██║   ██║██║   ██║█████╗      ██║   ██║█████╗
+██║     ██║   ██║╚██╗ ██╔╝██╔══╝      ██║   ██║██╔══╝
+███████╗╚██████╔╝ ╚████╔╝ ███████╗    ╚██████╔╝██║
+╚══════╝ ╚═════╝   ╚═══╝  ╚══════╝     ╚═════╝ ╚═╝
+
+████████╗██╗  ██╗███████╗     ██████╗  █████╗ ███╗   ███╗███████╗
+╚══██╔══╝██║  ██║██╔════╝    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝
+   ██║   ███████║█████╗      ██║  ███╗███████║██╔████╔██║█████╗
+   ██║   ██╔══██║██╔══╝      ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝
+   ██║   ██║  ██║███████╗    ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
+   ╚═╝   ╚═╝  ╚═╝╚══════╝     ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
+`
+
+  console.log(asciiArt)
+}
+
 function PostHogPageView() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -27,6 +54,9 @@ function PostHogPageView() {
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    // Display welcome message
+    displayWelcomeMessage()
+
     // Initialize PostHog on mount
     initPostHog()
   }, [])
