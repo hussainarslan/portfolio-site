@@ -71,12 +71,6 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
     apple: "/apple-touch-icon.png",
   },
-  manifest: "/manifest.webmanifest",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "HA Portfolio",
-  },
   openGraph: {
     title: "Muhammad Hussain Arslan | AI Engineer & Software Architect",
     description:
