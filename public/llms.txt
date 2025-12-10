@@ -1,0 +1,21 @@
+# Muhammad Hussain Arslan - AI Architect & Software Engineer
+
+## About
+Muhammad Hussain Arslan is an accomplished AI architect and software engineer with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.
+
+## Expertise
+- Artificial Intelligence & Machine Learning
+- Agentic Systems & AI Agents
+- Enterprise AI Products
+- Full-Stack Development
+- Workflow Automation
+- Software Architecture
+
+## Website
+https://mhac.dev
+
+## Contact
+Email: m.hussain.arslan@gmail.com
+
+## Professional Focus
+Building intelligent systems that automate complex workflows and enhance business operations through AI-powered solutions.
