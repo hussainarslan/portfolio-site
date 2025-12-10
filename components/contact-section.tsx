@@ -194,7 +194,7 @@ export default function ContactSection() {
                       Email
                     </div>
                     <div className="caption" style={{ color: "#B8B8A3" }}>
-                      m.hussain.arslan@gmail.com
+                      Send me an email
                     </div>
                   </div>
                 </a>
