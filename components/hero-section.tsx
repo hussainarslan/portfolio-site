@@ -40,7 +40,7 @@ export default function HeroSection() {
     <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
       <div className="text-center max-w-5xl mx-auto">
         <h1 className="hero-title mb-6 text-center leading-tight" style={{ color: "#FFFFE3" }}>
-          <span ref={firstLineRef} className="block mb-2 whitespace-nowrap">
+          <span ref={firstLineRef} className="block mb-2">
             Muhammad Hussain
           </span>
           <span ref={secondLineRef} className="block">

@@ -32,17 +32,17 @@ const panchang = localFont({
 const monaSans = localFont({
   src: [
     {
-      path: "../fonts/MonaSans-Light.ttf",
+      path: "../fonts/MonaSans-Light.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../fonts/MonaSans-Regular.ttf",
+      path: "../fonts/MonaSans-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../fonts/MonaSans-Medium.ttf",
+      path: "../fonts/MonaSans-Medium.woff2",
       weight: "500",
       style: "normal",
     },
@@ -88,6 +88,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${panchang.variable} ${monaSans.variable}`}>
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <PersonSchema />
         <GoogleAnalyticsProvider />
       </head>

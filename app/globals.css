@@ -63,6 +63,12 @@
     }
   }
 
+  @media (max-width: 380px) {
+    .hero-title {
+      font-size: clamp(1.25rem, 8vw, 1.75rem);
+    }
+  }
+
   .section-header {
     font-family: var(--font-panchang);
     font-size: clamp(2rem, 5vw, 3rem);
