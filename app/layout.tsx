@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
 import { PostHogProvider } from "@/components/providers/posthog-provider"
+import { GoogleAnalyticsProvider } from "@/components/providers/google-analytics-provider"
 import { PersonSchema } from "@/components/person-schema"
 
 // Load custom fonts
@@ -88,6 +89,7 @@ export default function RootLayout({
     <html lang="en" className={`${panchang.variable} ${monaSans.variable}`}>
       <head>
         <PersonSchema />
+        <GoogleAnalyticsProvider />
       </head>
       <body className="font-mona-sans antialiased" style={{ backgroundColor: "#161614", color: "#FFFFE3" }}>
         <PostHogProvider>{children}</PostHogProvider>
