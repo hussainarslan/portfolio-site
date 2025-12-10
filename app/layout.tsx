@@ -56,9 +56,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Hussain Arslan | AI Engineer & Software Architect - Muhammad Hussain Arslan",
+  title: "Muhammad Hussain Arslan | AI Engineer & Software Architect",
   description:
-    "Muhammad Hussain Arslan - AI Engineer & Architect with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
+    "Muhammad Hussain Arslan - AI Engineer & Architect with 7+ years of experience building enterprise AI products, agentic and workflow automation solutions.",
   keywords: [
     "Hussain Arslan",
     "Muhammad Hussain Arslan",
@@ -78,9 +78,9 @@ export const metadata: Metadata = {
     title: "HA Portfolio",
   },
   openGraph: {
-    title: "Hussain Arslan | AI Engineer & Software Architect - Muhammad Hussain Arslan",
+    title: "Muhammad Hussain Arslan | AI Engineer & Software Architect",
     description:
-      "Muhammad Hussain Arslan - AI Engineer & Architect with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
+      "Muhammad Hussain Arslan - AI Engineer & Architect with 7+ years of experience building enterprise AI products, agentic and workflow automation solutions.",
     url: "https://mhac.dev",
     siteName: "Muhammad Hussain Arslan",
     locale: "en_US",

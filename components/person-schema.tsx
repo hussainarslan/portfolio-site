@@ -7,7 +7,7 @@ export function PersonSchema() {
     url: "https://mhac.dev",
     jobTitle: "AI Engineer & Software Architect",
     description:
-      "Muhammad Hussain Arslan - AI Engineer & Architect with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
+      "Muhammad Hussain Arslan - AI Engineer & Architect with 7+ years of experience building enterprise AI products, agentic and workflow automation solutions.",
     knowsAbout: [
       "AI Engineering",
       "Artificial Intelligence",
