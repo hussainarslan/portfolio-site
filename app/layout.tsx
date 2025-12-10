@@ -56,17 +56,25 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Muhammad Hussain Arslan - AI Architect & Software Engineer",
+  title: "Hussain Arslan | AI Engineer & Software Architect - Muhammad Hussain Arslan",
   description:
-    "Accomplished AI architect and software engineer with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
+    "Muhammad Hussain Arslan - AI Engineer & Architect with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
+  keywords: [
+    "Hussain Arslan",
+    "Muhammad Hussain Arslan",
+    "AI Engineer",
+    "AI Architect",
+    "Software Engineer",
+    "Full Stack Developer",
+  ],
   icons: {
     icon: "/favicon.png",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Muhammad Hussain Arslan - AI Architect & Software Engineer",
+    title: "Hussain Arslan | AI Engineer & Software Architect - Muhammad Hussain Arslan",
     description:
-      "Accomplished AI architect and software engineer with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
+      "Muhammad Hussain Arslan - AI Engineer & Architect with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
     url: "https://mhac.dev",
     siteName: "Muhammad Hussain Arslan",
     locale: "en_US",
@@ -74,9 +82,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Muhammad Hussain Arslan - AI Architect & Software Engineer",
+    title: "Hussain Arslan | AI Engineer & Software Architect - Muhammad Hussain Arslan",
     description:
-      "Accomplished AI architect and software engineer with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
+      "Muhammad Hussain Arslan - AI Engineer & Architect with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
   },
 }
 

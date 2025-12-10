@@ -52,7 +52,7 @@ export default function HeroSection() {
           className="position-title mb-12 opacity-0 transform translate-y-4 transition-all duration-800 text-balance"
           style={{ color: "#B8B8A3" }}
         >
-          AI Architect & Software Engineer
+          AI Engineer & Software Architect
         </p>
 
         <div className="flex justify-center">

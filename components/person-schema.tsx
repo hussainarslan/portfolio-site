@@ -3,12 +3,13 @@ export function PersonSchema() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Muhammad Hussain Arslan",
-    alternateName: "MHA",
+    alternateName: ["MHA", "Hussain Arslan", "Muhammad Hussain"],
     url: "https://mhac.dev",
-    jobTitle: "AI Architect & Software Engineer",
+    jobTitle: "AI Engineer & Software Architect",
     description:
-      "Accomplished AI architect and software engineer with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
+      "Muhammad Hussain Arslan - AI Engineer & Architect with 7+ years of experience building enterprise AI products, agentic systems, and workflow automation solutions.",
     knowsAbout: [
+      "AI Engineering",
       "Artificial Intelligence",
       "Machine Learning",
       "Software Engineering",
