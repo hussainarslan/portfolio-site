@@ -1,3 +1,11 @@
+import withSerwistInit from "@serwist/next";
+
+const withSerwist = withSerwistInit({
+  swSrc: "app/sw.ts",
+  swDest: "public/sw.js",
+  disable: process.env.NODE_ENV === "development",
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -9,8 +17,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export', // Changed from 'standalone' to 'export'
-  trailingSlash: true, // Optional but recommended for static hosting
-}
+  output: "export",
+  trailingSlash: true,
+};
 
-export default nextConfig
+export default withSerwist(nextConfig);
