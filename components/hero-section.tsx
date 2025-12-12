@@ -1,55 +1,26 @@
-"use client"
-
-import { useEffect, useRef } from "react"
+// Helper to create character spans with staggered animation delays
+function renderChars(text: string, startIndex: number = 0) {
+  return text.split("").map((char, i) => (
+    <span key={i} style={{ animationDelay: `${(startIndex + i) * 0.05}s` }}>
+      {char === " " ? "\u00A0" : char}
+    </span>
+  ))
+}
 
 export default function HeroSection() {
-  const firstLineRef = useRef<HTMLSpanElement>(null)
-  const secondLineRef = useRef<HTMLSpanElement>(null)
-  const subtitleRef = useRef<HTMLParagraphElement>(null)
-
-  useEffect(() => {
-    const firstLine = firstLineRef.current
-    const secondLine = secondLineRef.current
-    const subtitle = subtitleRef.current
-
-    if (firstLine) {
-      const chars = "Muhammad Hussain".split("")
-      firstLine.innerHTML = chars
-        .map((char, i) => `<span style="animation-delay: ${i * 0.05}s">${char === " " ? "&nbsp;" : char}</span>`)
-        .join("")
-      firstLine.classList.add("text-reveal")
-    }
-
-    if (secondLine) {
-      const chars = "Arslan".split("")
-      secondLine.innerHTML = chars
-        .map((char, i) => `<span style="animation-delay: ${(i + 17) * 0.05}s">${char === " " ? "&nbsp;" : char}</span>`)
-        .join("")
-      secondLine.classList.add("text-reveal")
-    }
-
-    if (subtitle) {
-      setTimeout(() => {
-        subtitle.style.opacity = "1"
-        subtitle.style.transform = "translateY(0)"
-      }, 1200)
-    }
-  }, [])
-
   return (
     <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
       <div className="text-center max-w-5xl mx-auto">
         <h1 className="hero-title mb-6 text-center leading-tight" style={{ color: "#FFFFE3" }}>
-          <span ref={firstLineRef} className="block mb-2">
-            Muhammad Hussain
+          <span className="block mb-2 text-reveal">
+            {renderChars("Muhammad Hussain", 0)}
           </span>
-          <span ref={secondLineRef} className="block">
-            Arslan
+          <span className="block text-reveal">
+            {renderChars("Arslan", 17)}
           </span>
         </h1>
         <p
-          ref={subtitleRef}
-          className="position-title mb-12 opacity-0 transform translate-y-4 transition-all duration-800 text-balance"
+          className="position-title mb-12 subtitle-reveal text-balance"
           style={{ color: "#B8B8A3" }}
         >
           AI Engineer & Software Architect
